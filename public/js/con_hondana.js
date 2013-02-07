@@ -4,16 +4,16 @@ io.on("connect", function(session){
   console.log("connect!! "+session);
 
   $("#btn_up").click(function(){
-    io.push("scroll", {y : -20});
+    io.push("scroll", {y : -100});
   });
   $("#btn_down").click(function(){
-    io.push("scroll", {y : 20});
+    io.push("scroll", {y : 100});
   });
   $("#btn_left").click(function(){
-    io.push("scroll", {x : -20});
+    io.push("scroll", {x : -100});
   });
   $("#btn_right").click(function(){
-    io.push("scroll", {x : 20});
+    io.push("scroll", {x : 100});
   });
   $("#books img.book").click(function(e){
     var url = e.currentTarget.attributes['x-url'].value;
