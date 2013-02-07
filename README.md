@@ -1,8 +1,9 @@
-RemoTV
-======
+Hondana TV
+==========
+controll hondana.org with goldfish
 
-* http://remotv.herokuapp.com/
-* https://github.com/shokai/remotv
+* http://hondana-tv.herokuapp.com/
+* https://github.com/masuilab/hondana-tv
 
 
 Install Dependencies
