@@ -36,12 +36,19 @@ class Hondana
   end
 
   def self.similar_books(keyword, count=10)
-    enzan "%22#{URI.encode keyword}%22.books.similarbooks(#{count})"
+    enzan("%22#{URI.encode keyword}%22.books.similarbooks(#{count})").map{|i|
+      {
+        :url => "#{base_url}/#{i['shelves'].sample}/#{i['isbn']}",
+        :title => i['title'],
+        :img_s => "http://images-jp.amazon.com/images/P/#{i['isbn']}.01.jpg",
+        :img => "http://images-jp.amazon.com/images/P/#{i['isbn']}.jpg"
+      }
+    }
   end
 end
 
 if __FILE__ == $0
   require 'pp'
   # pp  Hondana.books('増井')
-  pp Hondana.similar_books 'ハイスコアガール'
+  pp Hondana.similar_books('ハイスコアガール', 5)
 end
