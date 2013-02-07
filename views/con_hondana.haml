@@ -14,3 +14,6 @@
       %li
         %img.book{:src => book[:img], 'x-url' => book[:url]}
         %p.title= book[:title]
+        %p
+          %a{:href => "#{app_root}/con/similar_books/#{book[:title]}"}
+            「#{book[:title]}」で関連検索
