@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 require 'rubygems'
 require 'nokogiri'
-require 'tmp_cache'
 require 'http'
 require 'uri'
 require 'open-uri'

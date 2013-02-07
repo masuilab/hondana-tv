@@ -3,7 +3,7 @@ get '/con/:shelf' do
   @shelf = params[:shelf]
   @title = "#{@shelf}の本棚"
   CometIO.push :go, {:url => "http://hondana.org/#{@shelf}"}
-  @books = Hondana.books @shelf
+  @books = books @shelf
   haml :con_hondana
 end
 

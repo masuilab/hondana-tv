@@ -8,8 +8,13 @@ controll hondana.org with goldfish
 
 Install Dependencies
 --------------------
-Ruby 1.8.7+ or 1.9.2+ required.
+requirements
 
+* Ruby 1.8.7+ or 1.9.2+
+* memcached
+
+
+    % brew install memcached
     % gem install bundler foreman
     % bundle install
 
@@ -17,6 +22,8 @@ Ruby 1.8.7+ or 1.9.2+ required.
 Run
 ---
 
+    % cp sample.config.yml config.yml
+    % memcached -vv -p 11211 -U 11211
     % foreman start
 
 => http://localhost:5000
@@ -26,5 +33,14 @@ Deploy
 ------
 
     % heroku create --stack cedar
+
+add memcache addon
+
+    % heroku addons:add memcache:5mb
+or
+    % heroku addons:add memcachier:dev
+
+deploy
+
     % git push heroku master
     % heroku open
