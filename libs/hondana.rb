@@ -5,6 +5,8 @@ require 'nokogiri'
 require 'tmp_cache'
 require 'http'
 require 'uri'
+require 'open-uri'
+require 'json'
 
 class Hondana
   def self.base_url
@@ -28,9 +30,18 @@ class Hondana
       i[:img_s] == nil
     }
   end
+
+  def self.enzan(cmd)
+    JSON.parse open("#{base_url}/enzan/calculate/?cmd=#{cmd}").read rescue []
+  end
+
+  def self.similar_books(keyword, count=10)
+    enzan "%22#{URI.encode keyword}%22.books.similarbooks(#{count})"
+  end
 end
 
 if __FILE__ == $0
   require 'pp'
-  pp  Hondana.books('増井')
+  # pp  Hondana.books('増井')
+  pp Hondana.similar_books 'ハイスコアガール'
 end
