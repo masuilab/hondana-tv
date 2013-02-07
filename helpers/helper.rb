@@ -1,7 +1,7 @@
 
 helpers do
   def app_name
-    "remotv"
+    "hondana tv"
   end
 
   def app_root
