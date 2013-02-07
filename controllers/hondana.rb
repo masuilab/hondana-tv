@@ -11,5 +11,13 @@ get '/con/similar_books/:keyword' do
   @keyword = params[:keyword]
   @title = "「#{@keyword}」の関連本"
   @books = similar_books @keyword
+  CometIO.push :go, {:url => "#{app_root}/tv/similar_books/#{@keyword}"}
   haml :con_hondana
+end
+
+get '/tv/similar_books/:keyword' do
+  @keyword = params[:keyword]
+  @title = "「#{@keyword}」の関連本"
+  @books = similar_books @keyword
+  haml :tv_hondana
 end

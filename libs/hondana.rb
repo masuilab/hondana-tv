@@ -34,7 +34,7 @@ class Hondana
     JSON.parse open("#{base_url}/enzan/calculate/?cmd=#{cmd}").read rescue []
   end
 
-  def self.similar_books(keyword, count=10)
+  def self.similar_books(keyword, count=50)
     enzan("%22#{URI.encode keyword}%22.books.similarbooks(#{count})").map{|i|
       {
         :url => "#{base_url}/#{i['shelves'].sample}/#{i['isbn']}",

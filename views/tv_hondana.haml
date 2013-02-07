@@ -1,0 +1,12 @@
+- content_for :html_foot do
+  %script{:type => "text/javascript", :src => cometio_js}
+  %link{:rel => "stylesheet", :href => "#{app_root}/tv_hondana.css", :type => "text/css"}
+    
+
+%div
+  %h1= @title
+  %ul#books
+    - @books.each do |book|
+      %li
+        %a{:href => "#{app_root}/tv/similar_books/#{book['title']}"}
+          %img.book{:src => book['img_s'], 'x-url' => book['url'], :alt => book['title']}
