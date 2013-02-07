@@ -10,6 +10,6 @@ end
 get '/con/similar_books/:keyword' do
   @keyword = params[:keyword]
   @title = "「#{@keyword}」の関連本"
-  @books = Hondana.similar_books @keyword
+  @books = similar_books @keyword
   haml :con_hondana
 end
