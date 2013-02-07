@@ -8,7 +8,7 @@ if development?
 end
 
 require File.expand_path 'bootstrap', File.dirname(__FILE__)
-Bootstrap.init :inits, :helpers, :controllers
+Bootstrap.init :inits, :libs, :helpers, :controllers
 
 set :haml, :escape_html => true
 

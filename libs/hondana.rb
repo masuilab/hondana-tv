@@ -20,7 +20,7 @@ class Hondana
       asin = a['href'].gsub(/^\/#{URI.encode shelf}\//, '')
       {
         :url => "#{base_url}/#{shelf}/#{asin}",
-        :text => (a.child.attributes['alt'].value rescue nil),
+        :title => (a.child.attributes['alt'].value rescue nil),
         :img_s => (a.child.attributes['src'].value rescue nil),
         :img => "http://images-jp.amazon.com/images/P/#{asin}.jpg"
       }

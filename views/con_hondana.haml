@@ -1,0 +1,16 @@
+- content_for :html_foot do
+  %script{:type => "text/javascript", :src => cometio_js}
+  %script{:type => "text/javascript", :src => "#{app_root}/js/con_hondana.js"}
+
+%div
+  %h1= @title
+  %p
+    %input{:type => :button, :id => :btn_up, :value => "up"}
+    %input{:type => :button, :id => :btn_down, :value => "down"}
+    %input{:type => :button, :id => :btn_left, :value => "left"}
+    %input{:type => :button, :id => :btn_right, :value => "right"}
+  %ul#books
+    - @books.each do |book|
+      %li
+        %img.book{:src => book[:img], 'x-url' => book[:url]}
+        %p.title= book[:title]
