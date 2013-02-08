@@ -1,0 +1,19 @@
+- content_for :html_foot do
+  %script{:type => "text/javascript", :src => cometio_js}
+  %script{:type => "text/javascript", :src => "#{app_root}/js/con_contents_navi.js"}
+
+%div
+  %h1= @title
+  %p
+    %input{:type => :button, :id => :btn_up, :value => "up"}
+    %input{:type => :button, :id => :btn_down, :value => "down"}
+    %input{:type => :button, :id => :btn_left, :value => "left"}
+    %input{:type => :button, :id => :btn_right, :value => "right"}
+  %ul#books
+    - @items.each do |i|
+      %li
+        %img.item{:src => i[:img], 'x-url' => i[:url]}
+        %p.title= i[:title]
+        %p
+          %a{:href => "#{app_root}/con/contents_navi/#{i[:id]}"}
+            「#{i[:title]}」で関連検索
