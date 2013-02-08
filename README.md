@@ -34,20 +34,21 @@ Run
 Deploy
 ------
 
+### create heroku instance
+
     % heroku create --stack cedar
 
-add memcache addon
+### add memcache addon
 
     % heroku addons:add memcache:5mb
-or
     % heroku addons:add memcachier:dev
 
-contents_navi config
+### contents_navi config
 
     % heroku config:set CONTENTS_NAVI_USER=username
     % heroku config:set CONTENTS_NAVI_PASS=password
 
-deploy
+### deploy
 
     % git push heroku master
     % heroku open
