@@ -1,18 +1,20 @@
 Hondana TV
 ==========
-controll hondana.org with goldfish
+controll hondana.org and contents_navi with goldfish
 
 * http://hondana-tv.herokuapp.com/
 * https://github.com/masuilab/hondana-tv
 
 
-Install Dependencies
---------------------
-requirements
+Requirements
+------------
 
 * Ruby 1.8.7+ or 1.9.2+
 * memcached
 
+
+Install Dependencies
+--------------------
 
     % brew install memcached
     % gem install bundler foreman
