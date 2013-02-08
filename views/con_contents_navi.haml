@@ -12,8 +12,8 @@
   %ul#items
     - @items.each do |i|
       %li
-        %img.item{:src => i[:img], 'x-url' => i[:url]}
-        %p.title= i[:title]
+        %img.item{:src => i['img'], 'x-url' => i['url']}
+        %p.title= i['title']
         %p
-          %a{:href => "#{app_root}/con/contents_navi/#{i[:id]}"}
-            「#{i[:title]}」で関連検索
+          %a{:href => "#{app_root}/con/contents_navi/#{i['id']}"}
+            「#{i['title']}」で関連検索
