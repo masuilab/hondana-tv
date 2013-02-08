@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 require 'rubygems'
 require 'nokogiri'
-require 'http'
+require 'httparty'
 require 'uri'
 require 'open-uri'
 require 'json'
@@ -14,7 +14,7 @@ class Hondana
 
   def self.books(shelf)
     url = "#{base_url}/#{shelf}"
-    doc = Nokogiri::HTML Http.get(URI.encode url)
+    doc = Nokogiri::HTML HTTParty.get(URI.encode url)
     doc.xpath('//a').select{|a|
       a['href'] =~ /^\/#{URI.encode shelf}\/[A-Z0-9]{10}/
     }.map{|a|
@@ -31,7 +31,7 @@ class Hondana
   end
 
   def self.enzan(cmd)
-    JSON.parse open("#{base_url}/enzan/calculate/?cmd=#{cmd}").read rescue []
+    JSON.parse HTTParty.get("#{base_url}/enzan/calculate/?cmd=#{cmd}") rescue []
   end
 
   def self.similar_books(keyword, count=50)
