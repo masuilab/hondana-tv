@@ -40,6 +40,11 @@ add memcache addon
 or
     % heroku addons:add memcachier:dev
 
+contents_navi config
+
+    % heroku config:set CONTENTS_NAVI_USER=username
+    % heroku config:set CONTENTS_NAVI_PASS=password
+
 deploy
 
     % git push heroku master
